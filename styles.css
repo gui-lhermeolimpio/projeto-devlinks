@@ -83,11 +83,15 @@ body * {
   transform: translateY(-50%);
 
   cursor: pointer;
+  animation: slideOut 0.4s;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slideIn 0.4s forwards;
 }
 
 #switch span {
@@ -162,6 +166,49 @@ ul li a:hover {
   background: var(--highlight-color);
 }
 
+footer {
+  padding: 24px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer span {
+  animation: rgbColor 3s infinite forwards;
+}
+
+/* Media Queries */
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url("./assets/bg-desktop.jpg");
+  }
+
+  .light {
+    --bg-url: url("./assets/bg-desktop-light.jpg");
+  }
+}
+
+/* Animation */
+
+@keyframes slideIn {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
+
 @keyframes rgbColor {
   0% {
     color: cyan;
@@ -174,28 +221,5 @@ ul li a:hover {
   }
   100% {
     color: cyan;
-  }
-}
-
-footer {
-  padding: 24px 0;
-  text-align: center;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-footer span {
-  animation: rgbColor 3s infinite ease-in-out;
-}
-
-/* Media Queries */
-
-@media (min-width: 700px) {
-  :root {
-    --bg-url: url("./assets/bg-desktop.jpg");
-  }
-
-  .light {
-    --bg-url: url("./assets/bg-desktop-light.jpg");
   }
 }
